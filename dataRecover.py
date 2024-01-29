@@ -34,7 +34,7 @@ class DataRecover:
         courts = read_csv(f"courtData/locator{thisLocator.locatorID}CourtData.csv")
         for eachcourt in courts.iterrows():
             courtagenda = read_csv(f"agendaData/agendaData{eachcourt[1]['courtID']}.csv")["courtAgenda"]
-            recoveredCourt = court.Court(thisLocator, thisLocator.locatorID, eachcourt[1]["courtType"], eachcourt[1]["location"], eachcourt[1]["pricePerHour"], courtagenda)
+            recoveredCourt = court.Court(thisLocator, thisLocator.locatorID, eachcourt[1]["courtType"], eachcourt[1]["location"], eachcourt[1]["pricePerHour"], eachcourt[1]["maxPlayers"], courtagenda)
             ## print(f"Court {recoveredCourt.courtID} recovered")
 
     def recoverReservationsObjects(renterID):

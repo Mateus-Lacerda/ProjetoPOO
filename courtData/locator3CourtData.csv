@@ -1,2 +1,2 @@
-courtID,thisLocator,locatorID,courtType,location,pricePerHour,agenda
-5,<locator.Locator object at 0x0000020499840560>,3,Basquete,Av. Alamar Arantes,320,<agenda.Agenda object at 0x000002049B7AA930>
+courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
+5,<locator.Locator object at 0x0000028F046001D0>,3,Basquete,Av. Alamar Arantes,320,0,<agenda.Agenda object at 0x0000028F046368A0>

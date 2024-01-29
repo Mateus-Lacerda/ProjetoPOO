@@ -162,9 +162,11 @@ if (window.location.pathname === '/courts') {
                 <p>Tipo de quadra: ${court.courtType}</p>
                 <p>Localização: ${court.location}</p>
                 <p>Preço por hora: R$${court.pricePerHour},00</p>
+                <p>Lotação máxima: ${court.maxPlayers}</p>
                 <a href="/rent_court?courtID=${court.courtID}&locatorID=${court.locatorID}">
                     <button type="button" class="locate">Alugar</button>
                 </a>
+                <br>
             </div>
             `;
 
@@ -181,7 +183,6 @@ if (window.location.pathname === '/courts') {
     fetch(window.location.origin + '/request_courts')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             showAllCourts(data['courts'])
         }
         )

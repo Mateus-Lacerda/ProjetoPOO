@@ -44,6 +44,7 @@ class Court:
         details["pricePerHour"] = self.pricePerHour
         details["courtID"] = self.courtID
         details["locatorID"] = self.locatorID
+        details["maxPlayers"] = self.maxPlayers
 
         return details
 
