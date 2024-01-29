@@ -1,5 +1,6 @@
 import reservation, agenda, renter, user
 import pandas as pd
+from ast import literal_eval
 
 class Court:
     ser = 0
@@ -28,10 +29,10 @@ class Court:
             __class__.courtData[self.locatorID] = {self.courtID : self.__dict__} ## VERIFICAR SE ESTÁ FUNCIONANDO ( )
             thisLocator.ownedCourts.append(self)
 
-        print("______________________________________")
-        print(f"Court {self.courtID} created")
-        print(f"Court {self.courtID} data: {self.__dict__}")
-        print(f"Court Data: {__class__.courtData}")
+        ## print("______________________________________")
+        ## print(f"Court {self.courtID} created")
+        ## print(f"Court {self.courtID} data: {self.__dict__}")
+        ## print(f"Court Data: {__class__.courtData}")
         
         self.updateCourtData(userexsits)
         user.User.updateUserData("Locator")
@@ -41,6 +42,8 @@ class Court:
         details["courtType"] = self.courtType
         details["location"] = self.location
         details["pricePerHour"] = self.pricePerHour
+        details["courtID"] = self.courtID
+        details["locatorID"] = self.locatorID
 
         return details
 
@@ -56,13 +59,23 @@ class Court:
             newCourtData = pd.concat([oldCourtData, newCourtData], ignore_index=True)
         newCourtData.to_csv(f"courtData/locator{self.locatorID}CourtData.csv", index=False)
 
-    def bookCourt(self, userID, date, startTime, endTime):
+    def bookCourt(self, userID, startTime):
+        today = pd.Timestamp('now').day
+        date = today
+        startTime = self.hourToInt(startTime) - 1
+        endTime = startTime + 1
+        print("______________________________________")
+        print(f"Booking court {self.courtID} for user {userID}")
+        print("______________________________________")
+        print(f"Reservation data: {date}, {startTime}, {endTime}")
         if self.checkAvailability(date, startTime, endTime) == True:
-            thisreservation = reservation.Reservation(self.courtID, userID, renter.Renter.getRenterName(userID), date, startTime, endTime)
-            self.agenda.getAgenda.updateAgenda(self.courtID, date, startTime, endTime, [renter.Renter.getRenterName(userID), False])
-            renter.Renter.registerReservation(thisreservation.getResID(self.courtID), userID)
+            thisreservation = reservation.Reservation(self.courtID, userID, user.User.getUserName("Renter", userID), date, startTime, endTime)
+            self.agenda.updateAgenda(date, startTime, endTime, [user.User.getUserName("Renter", userID), False])
+            renter.Renter.registerReservation(thisreservation, userID)
+            print("______________________________________")
+            print(f"Reservation {thisreservation} created")
+            print(f"Reservation {thisreservation} data: {thisreservation.getResData()}")
         else:
-            
             return False
 
     def cancelBooking(self, resID):
@@ -76,10 +89,19 @@ class Court:
     
 
     def checkAvailability(self, date, startTime, endTime):
-        for timeSlot in agenda.Agenda.getAgenda(self.courtID)[date][startTime:endTime]:
+        for timeSlot in literal_eval(agenda.Agenda.getAgenda(self.courtID)[date])[startTime:endTime]:
+            print("______________________________________")
+            print(timeSlot)
+            print("______________________________________")
             if timeSlot[1] == False:
 
                 return False
             
         return True
+    
+    @staticmethod
+    def hourToInt(hour):
+        hour = hour.split(":")
+        hour = int(hour[0])
+        return hour
     

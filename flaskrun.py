@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, session, url_for, jsonify
+from flask import Flask, render_template, request, redirect, session, url_for, jsonify, make_response
 
-import user, dataRecover, locator, renter
+import user, dataRecover, locator, renter, agenda
 
 from pandas import read_csv, DataFrame
 
@@ -10,31 +10,33 @@ def dataManagement():
     try: 
         locatorData = read_csv("userData/locatorData.csv")
         if not locatorData.empty:
-            print("______________________________________")
-            print("Recovering locator data...")
+            ## print("______________________________________")
+            ## print("Recovering locator data...")
             firstRun = False
 
     except: 
-        print("locator data not found...")
+        ## print("locator data not found...")
+        print()
     
     try:    
         renterData = read_csv("userData/renterData.csv")
         if not renterData.empty:
-            print("______________________________________")
-            print("Recovering renter data...")
+            ## print("______________________________________")
+            ## print("Recovering renter data...")
             firstRun = False
         
                   
     except: 
-        print("renter data not found...")
+        ## print("renter data not found...")
+        print()
     
     if not firstRun:
         dataRecover.DataRecover.recoverLocatorObjects()
         dataRecover.DataRecover.recoverRenterObjects()
 
     if firstRun:
-        print("______________________________________")
-        print("Creating user first csv files...") 
+        ## print("______________________________________")
+        ## print("Creating user first csv files...") 
         locatorData = DataFrame(user.User.userData["Locator"],columns=["userType","name","email","phoneNumber","username","password","locatorID","ownedCourts","object"])
         renterData = DataFrame(user.User.userData["Renter"], columns=["userType","name","email","phoneNumber","username","password","renterID","reservations","object"])
         locatorData.to_csv("userData/locatorData.csv", index=False)
@@ -203,7 +205,9 @@ def dashboard():
 def courts():
     renterID = int(request.args.get('renterID'))
     username = user.User.getUserObject("Renter", renterID).username
-    return render_template('courts.html', username=username)
+    resp = make_response(render_template('courts.html', username=username))
+    resp.set_cookie('renterID', str(renterID))
+    return resp
 
 
 @app.route('/user_profile', methods=['GET'])
@@ -215,7 +219,20 @@ def user_profile():
     email = thisUser.email
     username = thisUser.username
     phoneNumber = thisUser.phoneNumber
-    return render_template('user_profile.html', name=name, email=email, username=username, phoneNumber=phoneNumber)
+    user_page = f"/dashboard?locatorID={userId}" if userType == "Locator" else f"/courts?renterID={userId}"
+    additional_data = ""
+    if userType == "Renter":
+        additional_data = additional_data + "<h3>Reservas</h3>"
+        additional_data = additional_data + "<div id='userData'>"
+        reservations = thisUser.reservations
+        print(reservations)
+        for reservation in reservations:
+            additional_data = additional_data + f"<p>Reserva: {reservation.resID}</p>"
+            additional_data = additional_data + f"<p>Quadra: {reservation.court}</p>"
+            additional_data = additional_data + f"<p>Dados da reserva: {reservation.reservationInfo}"
+            additional_data = additional_data + "</div><div id='userData'>"
+    additional_data = additional_data + "</div>"
+    return render_template('user_profile.html', additional_data = additional_data, name=name, email=email, username=username, phoneNumber=phoneNumber, user_page=user_page)
 
 @app.route('/request_courts', methods=['GET'])
 def request_courts():
@@ -264,6 +281,29 @@ def request_renter_data():
         reservations.append(reservation.getDetails())
     return jsonify(reservations=reservations, renterID=renterID)
 
+
+@app.route('/rent_court', methods=['GET', 'POST'])
+def rent_court():
+    renterID = int(request.cookies.get('renterID'))
+    courtID = int(request.args.get('courtID'))
+    thisRenter = (user.User.getUserObject("Renter", renterID))
+    locatorID = int(request.args.get('locatorID'))
+    thisLocator = (user.User.getUserObject("Locator", locatorID))
+    for court in thisLocator.ownedCourts:
+        if court.courtID == courtID:
+            thisCourt = court
+    courtAgenda = court.agenda
+    courtAgendaData = courtAgenda.courtAgenda
+    courtAgendaData = agenda.Agenda.filterAgenda(courtAgendaData)
+    if request.method == 'GET':
+        return render_template('rent_court.html', courtID=courtID, renterID=renterID, tables=[courtAgendaData.to_html(classes='data')], titles=[''])
+    elif request.method == 'POST':
+        hours = request.form.getlist('rented')
+        for hour in hours:
+            thisCourt.bookCourt(renterID, hour)
+        success_span = "<span class='success'>Reserva realizada com sucesso!</span>"
+        return render_template('rent_court.html', courtID=courtID, renterID=renterID, tables=[courtAgendaData.to_html(classes='data')], titles=[''], success_span=success_span)
+    
 
 @app.route('/logout')
 def logout():

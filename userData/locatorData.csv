@@ -1,7 +1,5 @@
 userType,name,email,phoneNumber,username,password,locatorID,ownedCourts,object
-Locator,Vitória,kkkas@ll.com,24455447,vitoriamarinho,nvhher,0,[],<locator.Locator object at 0x000001C314FEF7A0>
-Locator,ainstem,sa@asd.m,2568,asmfdlsdçç,250142,1,[],<locator.Locator object at 0x000001C316833470>
-Locator,kaio,pedro@pedro.p,2334234,zedaspinga,locli,2,[],<locator.Locator object at 0x000001C316713DA0>
-Locator,Mateus,mateuslacerda253@gmail.com,62981823352,mateus.lacerda,mateuslas,3,[],<locator.Locator object at 0x000001C316A998B0>
-Locator,João Victor Fernandes de Castro,jv003@email.com,123456,jv003,jv003,4,[],<locator.Locator object at 0x000001C3166877A0>
-Locator,João Victor Fernandes de Castro,jv003@email.com,123456,jv0031,jv003,5,[],<locator.Locator object at 0x000001C3168DF410>
+Locator,Vitória,kkkas@ll.com,24455447,vitoriamarinho,nvhher,0,"[<court.Court object at 0x0000020499879370>, <court.Court object at 0x0000020483574860>, <court.Court object at 0x000002049B131D00>, <court.Court object at 0x00000204998A0620>]",<locator.Locator object at 0x000002049B4B7C20>
+Locator,ainstem,sa@asd.m,2568,asmfdlsdçç,250142,1,[],<locator.Locator object at 0x000002049B27E240>
+Locator,kaio,pedro@pedro.p,2334234,zedaspinga,locli,2,[<court.Court object at 0x0000020499B8EA50>],<locator.Locator object at 0x000002049B1B82C0>
+Locator,Mateus,mateuslacerda253@gmail.com,62981823352,mateus.lacerda,mateuslas,3,[<court.Court object at 0x000002049B69EF90>],<locator.Locator object at 0x0000020499840560>

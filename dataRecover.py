@@ -1,6 +1,7 @@
-import agenda, court, locator, renter, reservation
+import agenda, court, locator, renter, reservation, user
 from pandas import read_csv
 from numpy import zeros
+from ast import literal_eval
 
 class DataRecover:
     def filterAgendaData(weekDays, weekend):
@@ -34,10 +35,13 @@ class DataRecover:
         for eachcourt in courts.iterrows():
             courtagenda = read_csv(f"agendaData/agendaData{eachcourt[1]['courtID']}.csv")["courtAgenda"]
             recoveredCourt = court.Court(thisLocator, thisLocator.locatorID, eachcourt[1]["courtType"], eachcourt[1]["location"], eachcourt[1]["pricePerHour"], courtagenda)
-            print(f"Court {recoveredCourt.courtID} recovered")
+            ## print(f"Court {recoveredCourt.courtID} recovered")
 
     def recoverReservationsObjects(renterID):
-        pass
+        reservations = read_csv(f"reservationData/reservationsData.csv")
+        for eachreservation in reservations.iterrows():
+            thisReservation = reservation.Reservation(eachreservation[1]["court"], eachreservation[1]["userName"], renterID, literal_eval(eachreservation[1]["reservationInfo"])[0], literal_eval(eachreservation[1]["reservationInfo"])[1], literal_eval(eachreservation[1]["reservationInfo"])[2])
+            user.User.getUserObject("Renter", renterID).registerReservation(thisReservation, renterID)
 
     def recoverLocatorObjects():
         locators = read_csv("userData/locatorData.csv")
@@ -46,8 +50,9 @@ class DataRecover:
             try:
                 __class__.recoverCourtsObjects(recoveredLocator)
             except:
-                print(f"Locator {recoveredLocator.locatorID} has no courts")
-            print(f"Locator {recoveredLocator.locatorID} recovered")
+                ## print(f"Locator {recoveredLocator.locatorID} has no courts")
+                print()
+            ## print(f"Locator {recoveredLocator.locatorID} recovered")
             
 
     def recoverRenterObjects():
@@ -55,4 +60,4 @@ class DataRecover:
         for thisRenter in renters.iterrows():
             recoveredRenter = renter.Renter(thisRenter[1]["name"], thisRenter[1]["email"], thisRenter[1]["phoneNumber"], thisRenter[1]["username"], thisRenter[1]["password"])
             __class__.recoverReservationsObjects(recoveredRenter.renterID)
-            print(f"Renter {recoveredRenter.renterID} recovered")
+            ## print(f"Renter {recoveredRenter.renterID} recovered")
