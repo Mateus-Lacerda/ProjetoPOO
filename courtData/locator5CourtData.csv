@@ -1,0 +1,6 @@
+courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
+8,<locator.Locator object at 0x0000025F8E2AD6A0>,5,Basquete,Rua amir2,100,12,<agenda.Agenda object at 0x0000025F8FD82A50>
+9,<locator.Locator object at 0x0000025F8E2AD6A0>,5,Basquete,Rua amir22,100,12,<agenda.Agenda object at 0x0000025F8F9979E0>
+10,<locator.Locator object at 0x0000025F8E2AD6A0>,5,Basquete,Rua amir225,100,12,<agenda.Agenda object at 0x0000025F8FB27920>
+11,<locator.Locator object at 0x0000025F8E2AD6A0>,5,Basquete,Rua amir225,100,12,<agenda.Agenda object at 0x0000025F8E37E5D0>
+12,<locator.Locator object at 0x0000025F8E2AD6A0>,5,Basquete,Rua amir2255,100,12,<agenda.Agenda object at 0x0000025F8FD83950>

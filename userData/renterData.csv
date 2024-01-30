@@ -1,4 +1,7 @@
 userType,name,email,phoneNumber,username,password,renterID,reservations,object
-Renter,Mateus,mateussilva@hotmail.com.br,24455447,mateus.lacerda2,mateus,0,[],<renter.Renter object at 0x00000240B11EAED0>
-Renter,João Victor,jv.detodaselas@gmail.com,62982765295,jvzinhoh.delah,mateus,1,[],<renter.Renter object at 0x00000240B11A7610>
-Renter,José Ricardo,josejoseminecraft@yahoo.com.br,31994945067,joseph_mine_222,jose,2,[],<renter.Renter object at 0x00000240B002A110>
+Renter,Mateus,mateussilva@hotmail.com.br,24455447,mateus.lacerda2,mateus,0,[],<renter.Renter object at 0x0000025F8E138380>
+Renter,João Victor,jv.detodaselas@gmail.com,62982765295,jvzinhoh.delah,mateus,1,[],<renter.Renter object at 0x0000025F8FB6DDC0>
+Renter,José Ricardo,josejoseminecraft@yahoo.com.br,31994945067,joseph_mine_222,jose,2,[],<renter.Renter object at 0x0000025F8E3DD370>
+Renter,Herik Kauan,herikk_ass.is@spotify.dev.br,62998988989,lordheri.k_k,jose,3,[],<renter.Renter object at 0x0000025F8E39F1A0>
+Renter,junin_dogrua_maroto,herikkauan05@gmail.com,62994951233,herikkk,1234,4,[],<renter.Renter object at 0x0000025F8FE15A90>
+Renter,junin_dogrua_maroto1,herikkauan05@gmail.com,62994951233,herikkk,1234,5,[],<renter.Renter object at 0x0000025F8FE62780>

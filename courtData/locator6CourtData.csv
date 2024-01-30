@@ -1,0 +1,3 @@
+courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
+13,<locator.Locator object at 0x0000025F8FCCDDF0>,6,volei,Rua amir2255,100,12,<agenda.Agenda object at 0x0000025F8FA0F650>
+14,<locator.Locator object at 0x0000025F8FCCDDF0>,6,volei,Rua amir22555,100,12,<agenda.Agenda object at 0x0000025F8FD834D0>
