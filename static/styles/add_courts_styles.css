@@ -1,7 +1,6 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #111;
-    /* Dark background color */
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,19 +8,44 @@ body {
     align-items: center;
     height: 100vh;
     justify-content: center;
-    color: #eee;
-    /* Light gray text color */
+}
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    /* Gradiente que combina com a caixa de login preta */
+    background: linear-gradient(to right, #2c3e50 0%, #4a586e 100%);
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #ccc;
-    /* Medium gray text color */
+h2.welcome-message {
+    color: #FFC107; /* Cor de destaque */
+    font-size: 24px; /* Tamanho maior para mais destaque */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
+    margin-bottom: 30px; /* Espaçamento maior para separar do restante do conteúdo */
+    animation: fadeIn 2s ease-in-out; /* Animação suave de entrada */
+}
+
+/* Animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 form {
-    background-color: #333;
-    /* Dark gray background color */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -32,8 +56,7 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    color: #ccc;
-    /* Medium gray text color */
+    color: #333;
 }
 
 input[type="text"],
@@ -41,17 +64,13 @@ input[type="number"] {
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #666;
-    /* Darker gray border color */
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    color: #333;
-    /* Darker gray text color */
 }
 
 button[type="submit"] {
-    background-color: #555;
-    /* Dark gray button background color */
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -63,8 +82,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #777;
-    /* Slightly lighter gray on hover */
+    background-color: #45a049;
 }
 
 .hour-selector {
@@ -73,33 +91,29 @@ button[type="submit"]:hover {
     width: 100/24%;
     justify-content: space-between;
 }
-
-.hour-selector>div {
+.hour-selector > div {
     font-size: 14px;
     display: inline-block;
-    border: 2px solid #666;
-    /* Darker gray border color */
-    border-radius: 10%;
+    border: 2px solid #646a7088;
+    border-radius: 10%;  
     text-align: center;
 }
 
-.hour-selector>div:hover {
+.hour-selector > div:hover {
     font-size: 14px;
     display: inline-block;
-    border: 2px solid #666;
-    /* Darker gray border color */
-    border-radius: 10%;
-    background-color: #666;
-    /* Darker gray background color */
+    border: 2px solid #646a7088;
+    border-radius: 10%;  
+    background-color: #646a7088;
     color: white;
     cursor: pointer;
 }
 
-.hour-selector>div>input:hover {
+.hour-selector > div > input:hover {
     cursor: pointer;
 }
 
-.hour-selector>div>label:hover {
+.hour-selector > div > label:hover {
     cursor: pointer;
 }
 
@@ -107,9 +121,42 @@ button[type="submit"]:hover {
     user-select: none;
 }
 
-.hour-selector>p {
+.hour-selector > p{
     width: 100%;
     margin: 0;
-    color: #ccc;
-    /* Medium gray text color */
+}
+
+/* Estiliza a caixa de seleção padrão */
+input[type="checkbox"] {
+    appearance: none; /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none; /* Para navegadores Webkit */
+    -moz-appearance: none; /* Para navegadores Mozilla */
+    width: 20px; /* Define a largura desejada */
+    height: 20px; /* Define a altura desejada */
+    border: 2px solid #333; /* Cor da borda */
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer; /* Altera o cursor ao passar por cima */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+/* Estiliza a caixa de seleção quando marcada */
+input[type="checkbox"]:checked {
+    background-color: #4caf50; /* Cor de fundo quando marcada */
+    border-color: #4caf50; /* Cor da borda quando marcada */
+}
+
+/* Estiliza o indicador de seleção (marca de verificação) */
+input[type="checkbox"]::before {
+    content: "\2713"; /* Caractere de marca de verificação Unicode ✓ */
+    font-size: 16px; /* Tamanho da fonte do indicador */
+    color: #fff; /* Cor do indicador quando marcada */
+    display: block;
+    text-align: center;
+    line-height: 20px; /* Centraliza verticalmente o indicador */
+}
+
+/* Estiliza a caixa de seleção quando desativada */
+input[type="checkbox"]:disabled {
+    opacity: 0.6; /* Opacidade reduzida para indicar desativado */
+    cursor: not-allowed; /* Cursor de não permitido */
 }
