@@ -1,2 +1,2 @@
 courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
-4,<locator.Locator object at 0x0000028F059C85C0>,2,Futebol,Av. Alamar Arantes,250000,0,<agenda.Agenda object at 0x0000028F045CEE10>
+4,<locator.Locator object at 0x00000240974191D0>,2,Futebol,Av. Alamar Arantes,250000,0,<agenda.Agenda object at 0x00000240B11EAB50>

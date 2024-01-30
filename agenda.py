@@ -32,8 +32,9 @@ class Agenda:
         today = pd.Timestamp('now').day
         agenda = list(agenda)
         agenda = agenda[today]
-        agenda = literal_eval(agenda) ## mudar essa lógica para a classe dataRecover
         ## create series for hours from 0 to 23
+        agenda = literal_eval(agenda)
+        print(type(agenda))
         hours = pd.Series(range(0,24))
         hours = hours.apply(lambda x: f"{x}:00")
         agenda = pd.DataFrame(agenda, index=hours)

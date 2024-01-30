@@ -40,8 +40,9 @@ class DataRecover:
     def recoverReservationsObjects(renterID):
         reservations = read_csv(f"reservationData/reservationsData.csv")
         for eachreservation in reservations.iterrows():
-            thisReservation = reservation.Reservation(eachreservation[1]["court"], eachreservation[1]["userName"], renterID, literal_eval(eachreservation[1]["reservationInfo"])[0], literal_eval(eachreservation[1]["reservationInfo"])[1], literal_eval(eachreservation[1]["reservationInfo"])[2])
-            user.User.getUserObject("Renter", renterID).registerReservation(thisReservation, renterID)
+            if eachreservation[1]["renterID"] == renterID:
+                thisReservation = reservation.Reservation(eachreservation[1]["court"], eachreservation[1]["userName"], renterID, literal_eval(eachreservation[1]["reservationInfo"])[0], literal_eval(eachreservation[1]["reservationInfo"])[1], literal_eval(eachreservation[1]["reservationInfo"])[2])
+                user.User.getUserObject("Renter", renterID).registerReservation(thisReservation, renterID)
 
     def recoverLocatorObjects():
         locators = read_csv("userData/locatorData.csv")

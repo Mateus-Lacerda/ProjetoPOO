@@ -167,6 +167,10 @@ if (window.location.pathname === '/courts') {
                     <button type="button" class="locate">Alugar</button>
                 </a>
                 <br>
+                <a href="/review?courtID=${court.courtID}&locatorID=${court.locatorID}">
+                    <button type="button" class="locate">Fazer Review</button>
+                </a>
+                <br>
             </div>
             `;
 

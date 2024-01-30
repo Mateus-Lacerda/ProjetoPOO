@@ -1,6 +1,7 @@
 body {
-    font-family: 'Montserrat', sans-serif; /* Fonte Principal */
-    background-color: rgb(0, 103, 212); /* Azul Vibrante */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111;
+    /* Dark background color */
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,6 +9,7 @@ body {
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+    color: white;
 }
 
 h2 {
@@ -19,30 +21,42 @@ h2 {
     width: auto;
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #555;
+    /* Dark gray border color */
     border-radius: 5px;
-    background-color: #fff;
-    color: #333;
+    background-color: #333;
+    /* Dark gray background color */
+    color: #eee;
+    /* Light gray text color */
     background-size: 15px;
     background-position: 95% center;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Added transition */
 }
 
 #userType:focus {
     outline: none;
-    border-color: #007BFF; 
+    border-color: #007BFF;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#userType:hover {
+    background-color: #555;
+    /* Slightly darker gray on hover */
 }
 
 label {
     font-size: 16px;
-    color: #333;
+    color: #eee;
+    /* Light gray text color */
     margin-bottom: 8px;
 }
 
 .login-container {
-    background-color: #2ecc71; /* Branco */
+    background-color: #444;
+    /* Dark gray background color */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -53,19 +67,29 @@ label {
     width: 90%;
     margin: 10px 0 10px 0;
     padding: 10px;
-    border: 1px solid #CCCCCC; /* Cinza Neutro */
+    border: 1px solid #666;
+    /* Darker gray border color */
     border-radius: 5px;
     font-size: 16px;
+    color: #eee;
+    /* Light gray text color */
 }
 
 .login-form button {
-    background-color: #007BFF; /* Verde Esportivo */
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Added transition */
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+    /* Slightly darker blue on hover */
 }
 
 .login-form form {
@@ -79,11 +103,18 @@ label {
 }
 
 .button-container button {
-    background-color: #FFA500; /* Azul Vibrante */
+    background-color: #FFA500;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Added transition */
+}
+
+.button-container button:hover {
+    background-color: #cf8700;
+    /* Slightly darker orange on hover */
 }

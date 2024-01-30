@@ -1,11 +1,13 @@
 import court
 from  user import User
 
+# ASSOCIAÇÃO COM A CLASSE COURT
+# COURT ASSOCIAÇÃO BIDIRECIONAL
 class Locator(User):
     locatorSer = 0
 
     def __init__(self, name, email, phoneNumber, username, password):
-        super(Locator,self).__init__(name, email, phoneNumber, username, password)
+        super().__init__(name, email, phoneNumber, username, password)
         self.userType = "Locator"
         self.locatorID = self.__class__.locatorSer
         self.__class__.locatorSer+=1
@@ -21,8 +23,8 @@ class Locator(User):
 
     def addCourts(self, courtType, location, pricePerHour, maxPlayers, courtagenda):
         thisCourt = court.Court(self.object, self.locatorID, courtType, location, pricePerHour, maxPlayers, courtagenda)
-        print("______________________________________")
-        print(f"Locator {self.locatorID} added court {thisCourt.getCourtID()}")
+        #print("______________________________________")
+        #print(f"Locator {self.locatorID} added court {thisCourt.getCourtID()}")
         super().updateUserData("Locator")
     
     def getCourts(self, courtID):

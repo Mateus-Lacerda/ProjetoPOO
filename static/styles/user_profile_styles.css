@@ -1,6 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(0, 103, 212);
+    background-color: #111;
+    /* Dark background color */
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,27 +13,29 @@ body {
 }
 
 #userData {
-    width:450px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    background-color: #2ecc71;
+    background-color: #333;
+    /* Dark gray background color */
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    color: #000000;
+    color: #eee;
+    /* Light gray text color */
 }
 
 #userData h3 {
     font-size: 22px;
     margin-bottom: 10px;
     padding-left: 10px;
-
 }
 
 #userData p {
     font-size: 18px;
-    color: #000;
+    color: #ccc;
+    /* Medium gray text color */
     padding-left: 10px;
 }
 
@@ -45,8 +48,10 @@ body {
 
 .page-top-buttons button,
 .page-top-buttons input {
-    background-color: #FFA500;
-    color: rgb(59, 59, 59);
+    background-color: #555;
+    /* Dark gray button background color */
+    color: #eee;
+    /* Light gray button text color */
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
@@ -57,5 +62,6 @@ body {
 
 .page-top-buttons button:hover,
 .page-top-buttons input:hover {
-    background-color: #cf8700;
+    background-color: #777;
+    /* Slightly lighter gray on hover */
 }

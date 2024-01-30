@@ -1,5 +1,7 @@
 from  user import User
 
+# ASSOCIAÇÃO COM A CLASSE RESERVATION
+# RESERVATION ASSOCIAÇÃO BIDIRECIONAL
 class Renter(User):
     renterSer = 0
 

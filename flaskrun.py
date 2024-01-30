@@ -4,6 +4,8 @@ import user, dataRecover, locator, renter, agenda
 
 from pandas import read_csv, DataFrame
 
+from ast import literal_eval
+
 
 def dataManagement():
     firstRun = True
@@ -203,10 +205,18 @@ def dashboard():
 
 @app.route('/courts', methods=['GET'])
 def courts():
-    renterID = int(request.args.get('renterID'))
-    username = user.User.getUserObject("Renter", renterID).username
-    resp = make_response(render_template('courts.html', username=username))
-    resp.set_cookie('renterID', str(renterID))
+    renterID = request.args.get('renterID')
+    if renterID == None:
+        renterID = int(request.args.get('userID'))
+        username = user.User.getUserObject("Renter", renterID).username
+        resp = make_response(render_template('courts.html', username=username))
+        resp.set_cookie('renterID', str(renterID))
+    else:
+        renterID = int(renterID)
+        username = user.User.getUserObject("Renter", renterID).username
+        resp = make_response(render_template('courts.html', username=username))
+        resp.set_cookie('renterID', str(renterID))
+
     return resp
 
 
@@ -225,11 +235,12 @@ def user_profile():
         additional_data = additional_data + "<h3>Reservas</h3>"
         additional_data = additional_data + "<div id='userData'>"
         reservations = thisUser.reservations
-        print(reservations)
+        # TODO: fix reservations INFO display, currently: (day, start, end) correct: (day dias, das start:00 às end:00)
         for reservation in reservations:
             additional_data = additional_data + f"<p>Reserva: {reservation.resID}</p>"
             additional_data = additional_data + f"<p>Quadra: {reservation.court}</p>"
-            additional_data = additional_data + f"<p>Dados da reserva: {reservation.reservationInfo}"
+            #additional_data = additional_data + f"<p>Dados da reserva: {reservation.reservationInfo}"
+            additional_data = additional_data + f"<p>Dados da reserva: Dia {reservation.reservationInfo[0]}, das {reservation.reservationInfo[1]}:00 às {reservation.reservationInfo[2]}:00</p>"
             additional_data = additional_data + "</div><div id='userData'>"
     additional_data = additional_data + "</div>"
     return render_template('user_profile.html', additional_data = additional_data, name=name, email=email, username=username, phoneNumber=phoneNumber, user_page=user_page)
@@ -253,6 +264,21 @@ def request_courts():
                 details["locatorName"] = thisLocator.username
                 courts.append(details)
         return jsonify(courts=courts)
+
+@app.route('/review', methods=['GET','POST'])
+def review():
+    if request.method == 'GET':
+        locatorID = int(request.args.get('locatorID'))
+        courtID = int(request.args.get('courtID'))
+        return render_template('review.html', locatorID=locatorID, courtID=courtID)
+    elif request.method == 'POST':
+        locatorID = int(request.args.get('locatorID'))
+        courtID = int(request.args.get('courtID'))
+        rating = int(request.form['rating'])
+        review = request.form['review']
+        thisLocator = (user.User.getUserObject("Locator", locatorID))
+        thisLocator.ownedCourts[courtID].addReview(rating, review)
+        return redirect(url_for('dashboard', locatorID=locatorID))
 
 ## EM ANDAMENTO
 @app.route('/request_agenda', methods=['GET'])

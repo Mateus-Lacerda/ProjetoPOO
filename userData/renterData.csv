@@ -1,2 +1,4 @@
 userType,name,email,phoneNumber,username,password,renterID,reservations,object
-Renter,Mateus,mateussilva@hotmail.com.br,24455447,mateus.lacerda2,mateus,0,[<reservation.Reservation object at 0x0000028F060CEDE0>],<renter.Renter object at 0x0000028F05DD56A0>
+Renter,Mateus,mateussilva@hotmail.com.br,24455447,mateus.lacerda2,mateus,0,[],<renter.Renter object at 0x00000240B11EAED0>
+Renter,João Victor,jv.detodaselas@gmail.com,62982765295,jvzinhoh.delah,mateus,1,[],<renter.Renter object at 0x00000240B11A7610>
+Renter,José Ricardo,josejoseminecraft@yahoo.com.br,31994945067,joseph_mine_222,jose,2,[],<renter.Renter object at 0x00000240B002A110>

@@ -1,6 +1,4 @@
 import pandas as pd
-from ast import literal_eval
-
 
 class User:
     userData = {"Locator": [], "Renter": []}

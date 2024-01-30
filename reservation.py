@@ -1,5 +1,8 @@
 import pandas as pd
 
+# ASSOCIAÇÃO COM A CLASSE COURT E COM A CLASSE USER
+# COURT ASSOCIAÇÃO UNIDIRECIONAL
+# USER ASSOCIAÇÃO BIDIRECIONAL
 class Reservation:
     ser = 0
     reservationsData = []

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Avaliação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/review_styles.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #eee;
+        }
+
+        .rating label:hover,
+        .rating label:hover~label,
+        .rating input:checked~label {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Página de Avaliação</h1>
+    <form action="/review" method="POST">
+        <input type="hidden" name="locatorID" value="{{ locatorID }}">
+        <input type="hidden" name="courtID" value="{{ courtID }}">
+
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5"><span id="starIcon"></span></label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4"><span id="starIcon"></span></label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3"><span id="starIcon"></span></label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2"><span id="starIcon"></span></label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1"><span id="starIcon"></span></label>
+        </div>
+
+        <label for="review">Comentário:</label>
+        <textarea name="review" id="review" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Enviar Avaliação</button>
+    </form>
+
+    <script>
+        var labels = document.getElementsByTagName('label');
+        for (var i = 0; i < labels.length; i++) {
+            var span = labels[i].getElementsByTagName('span')[0];
+            span.id = "starIcon";
+            span.className = "fa fa-star";
+        }
+    </script>
+
+</body>
+
+</html>

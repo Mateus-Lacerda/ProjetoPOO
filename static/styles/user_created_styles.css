@@ -1,18 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #111;
+    /* Dark background color */
+    color: #eee;
+    /* Light gray text color */
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    color: #009933;
+    color: #00cc66;
+    /* Light green text color */
 }
 
 p {
-    background-color: #4CAF50;
-    color: #006400;
+    background-color: #006400;
+    /* Dark green background color */
+    color: #f2f2f2;
+    /* Light gray text color */
     font-size: 18px;
     padding: 10px 0;
     border-radius: 5px;

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Usuado criado com sucesso!</title>
-        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/user_created_styles.css')}}">
-    </head>
-    <body>
-        <h1>Usuado criado com sucesso!</h1>
-        <p>Sua conta foi criada com sucesso! Por favor, faça login para continuar.</p>
-        <script>
-            setTimeout(function() {
-                window.location.href = "/login";
-            }, 3000); // Redirect to login page after 3 seconds
-        </script>
-    </body>
+
+<head>
+    <title>Usuário criado com sucesso!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/user_created_styles.css')}}">
+</head>
+
+<body>
+    <h1>Usuado criado com sucesso!</h1>
+    <p>Sua conta foi criada com sucesso! Por favor, faça login para continuar.</p>
+    <script>
+        setTimeout(function () {
+            window.location.href = "/login";
+        }, 3000); // Redirect to login page after 3 seconds
+    </script>
+</body>
+
 </html>

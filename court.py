@@ -71,6 +71,7 @@ class Court:
         print(f"Reservation data: {date}, {startTime}, {endTime}")
         if self.checkAvailability(date, startTime, endTime) == True:
             thisreservation = reservation.Reservation(self.courtID, userID, user.User.getUserName("Renter", userID), date, startTime, endTime)
+            ## DELEGAÇÃO DE AGENDA - método updateAgenda da classe Agenda
             self.agenda.updateAgenda(date, startTime, endTime, [user.User.getUserName("Renter", userID), False])
             renter.Renter.registerReservation(thisreservation, userID)
             print("______________________________________")

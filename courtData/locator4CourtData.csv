@@ -1,2 +1,3 @@
 courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
-12,<locator.Locator object at 0x000001EF14460260>,4,badminton,Goiânia,35,0,<agenda.Agenda object at 0x000001EF15C5AED0>
+6,<locator.Locator object at 0x00000240B11C5810>,4,Patinação Artística,Av. Palmeiras,100,20,<agenda.Agenda object at 0x00000240B11EB7D0>
+7,<locator.Locator object at 0x00000240B11C5810>,4,Bocha,Av. Parnaíba,400,10,<agenda.Agenda object at 0x00000240B11EAB90>
