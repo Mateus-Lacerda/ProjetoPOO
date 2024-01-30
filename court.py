@@ -91,10 +91,6 @@ class Court:
             self.agenda.updateAgenda(date, startTime, endTime, [
                                      user.User.getUserName("Renter", userID), False])
             renter.Renter.registerReservation(thisreservation, userID)
-            print("______________________________________")
-            print(f"Reservation {thisreservation} created")
-            print(f"Reservation {thisreservation} data: {
-                  thisreservation.getResData()}")
         else:
             return False
 

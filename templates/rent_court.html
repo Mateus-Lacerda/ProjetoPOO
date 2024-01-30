@@ -9,14 +9,16 @@
 </head>
 
 <body>
-    <h1>Alugar Quadra:</h1>
+    <h1 class="welcome-message">Alugar Quadra:</h1>
     {% for table in tables %}
     <form method="POST">
         <div class="table-container">
             {{ table | safe }}
         </div>
         {% endfor %}
+        <br>
         <input type="submit" value="Alugar" class="submit-button">
+
     </form>
     <a href="/user_profile?userID={{ renterID }}&userType=Renter">
         <button class="submit-button">Finalizar</button>
@@ -31,7 +33,7 @@
             rows = tables[i].getElementsByTagName("tr");
             for (let j = 0; j < rows.length; j++) {
                 if (rows[j].innerHTML.includes("Disponível")) {
-                    rows[j].style.backgroundColor = "#00FF00";
+                    rows[j].style.backgroundColor = "#FFFFFF";
                     // checkbox value must be row index
                     index = rows[j].getElementsByTagName("th")
                     // add checkbox to row

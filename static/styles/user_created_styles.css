@@ -1,21 +1,44 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    /* Dark background color */
-    color: #eee;
-    /* Light gray text color */
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    /* Gradiente que combina com a caixa de login preta */
+    background: linear-gradient(to right, #2c3e50 0%, #4a586e 100%);
 }
 
-h1 {
-    color: #00cc66;
-    /* Light green text color */
+
+h1.welcome-message {
+    color: #FFC107;
+    /* Cor de destaque */
+    font-size: 24px;
+    /* Tamanho maior para mais destaque */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra para dar profundidade */
+    margin-bottom: 30px;
+    /* Espaçamento maior para separar do restante do conteúdo */
+    animation: fadeIn 2s ease-in-out;
+    /* Animação suave de entrada */
 }
 
+/* Animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 p {
-    background-color: #006400;
+    /*background-color: #000000;
     /* Dark green background color */
     color: #f2f2f2;
     /* Light gray text color */

@@ -7,9 +7,62 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    /*height: 100vh;*/
     justify-content: center;
-    color: white;
+    /* Gradiente que combina com a caixa de login preta */
+    background: linear-gradient(to right, #2c3e50 0%, #4a586e 100%);
+}
+
+h1.welcome-message {
+    color: #FFC107;
+    /* Cor de destaque */
+    font-size: 24px;
+    /* Tamanho maior para mais destaque */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra para dar profundidade */
+    margin-bottom: 30px;
+    /* Espaçamento maior para separar do restante do conteúdo */
+    animation: fadeIn 2s ease-in-out;
+    /* Animação suave de entrada */
+}
+
+/* Animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reservas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaço entre os itens de reserva */
+    margin: 20px 0; /* Espaçamento vertical para separar do resto do conteúdo */
+}
+
+#userData {
+    width: 450px; /* Largura fixa para cada reserva */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Alinha os itens à esquerda dentro do contêiner da reserva */
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: #eee;
+    margin-bottom: 20px; /* Espaçamento adicional no fundo, se necessário */
+    padding: 15px; /* Adiciona padding para espaçamento interno */
+}
+
+#userData h3, #userData p {
+    padding: 0 10px; /* Padding horizontal para não colar no borda */
 }
 
 #userData {
