@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dashboard_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/dashboard_styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='assets/favicon.jpg')}}">
 </head>
+
 <body>
     <div class="page-top-buttons">
         <input type='button' value="Voltar" onclick="history.go(-1)()">
-        <button id="logoutButton">Sair</button>
+        <button id="reviewDashboardButton">Ver reviews de usuários</button>
         <button id="profileButton">Perfil</button>
+        <button id="logoutButton">Sair</button>
     </div>
     <h1>Quadras de {{username}}</h1>
     <div id="courtContainer"></div>
     <script src="{{ url_for('static',filename='script/script.js') }}"></script>
 </body>
+
 </html>

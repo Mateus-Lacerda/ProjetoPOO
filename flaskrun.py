@@ -303,7 +303,9 @@ def review_page():
 @app.route('/reviews_dashboard', methods=['GET'])
 def reviews_dashboard():
     reviews = review.Review.filterReviews()
-    return render_template('review_dashboard.html', reviews=reviews)
+    resp = make_response(render_template(
+        'review_dashboard.html', reviews=reviews))
+    return resp
 
 
 # EM ANDAMENTO

@@ -212,6 +212,12 @@ if (window.location.pathname === '/courts') {
     });
 }
 
+var reviewDashboardButton = document.getElementById('reviewDashboardButton');
+reviewDashboardButton.addEventListener('click', function (event) {
+    var newURL = window.location.origin + '/reviews_dashboard'
+    window.location.replace(newURL);
+});
+
 var logOutButton = document.getElementById('logoutButton');
 logOutButton.addEventListener('click', function (event) {
     localStorage.clear();

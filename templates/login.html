@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem vindo!</title>
-    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/login_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login_styles.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='assets/favicon.jpg')}}">
 </head>
 
 <body>
@@ -15,15 +16,15 @@
             <form method="POST" action="/login">
                 <input type="text" id="username" name="username" placeholder="Nome de Usuário" required><br>
                 <input type="password" id="password" name="password" placeholder="Senha" required><br>
-                
+
                 <div class="radio-container">
                     <input type="radio" id="locator" name="userType" value="Locator" required>
                     <label for="locator">Dono</label>
-    
+
                     <input type="radio" id="renter" name="userType" value="Renter" required>
                     <label for="renter">Consumidor</label>
                 </div>
-    
+
                 <button type="submit">Entrar</button>
             </form>
             {% if error %}
@@ -33,9 +34,9 @@
         <div class="new-account-container">
             Novo aqui? <a href="/add_user" class="create-account-link">Criar uma conta</a>
         </div>
-        
+
     </div>
-    
+
 </body>
 
 </html>
