@@ -60,6 +60,15 @@ class Court:
             thisreservation = reservation.Reservation(self.courtID, userID, renter.Renter.getRenterName(userID), date, startTime, endTime)
             self.agenda.getAgenda.updateAgenda(self.courtID, date, startTime, endTime, [renter.Renter.getRenterName(userID), False])
             renter.Renter.registerReservation(thisreservation.getResID(self.courtID), userID)
+            thisreservation = reservation.Reservation(
+                self.courtID, userID, user.User.getUserName("Renter", userID), date, startTime, endTime)
+            # DELEGAÇÃO DE AGENDA - método updateAgenda da classe Agenda
+            self.agenda.updateAgenda(date, startTime, endTime, [
+                                     user.User.getUserName("Renter", userID), False])
+            renter.Renter.registerReservation(thisreservation, userID)
+            print("______________________________________")
+            print(f"Reservation {thisreservation} created")
+            print(f"Reservation {thisreservation} data: {thisreservation.getResData()}")
         else:
             
             return False
@@ -81,4 +90,5 @@ class Court:
                 return False
             
         return True
+
     

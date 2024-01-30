@@ -217,7 +217,25 @@ def user_profile():
     email = thisUser.email
     username = thisUser.username
     phoneNumber = thisUser.phoneNumber
-    return render_template('user_profile.html', name=name, email=email, username=username, phoneNumber=phoneNumber)
+    user_page = f"/dashboard?locatorID={userId}" if userType == "Locator" else f"/courts?renterID={userId}"
+    additional_data = ""
+    if userType == "Renter":
+        additional_data = additional_data + "<h3>Reservas</h3>"
+        additional_data = additional_data + "<div class='reservas-container'>"
+        reservations = thisUser.reservations
+        # TODO: fix reservations INFO display, currently: (day, start, end) correct: (day dias, das start:00 às end:00)
+        for reservation in reservations:
+            additional_data = additional_data + "<div id='userData'>"
+            additional_data = additional_data + \
+                f"<p>Reserva: {reservation.resID}</p>"
+            additional_data = additional_data + \
+                f"<p>Quadra: {reservation.court}</p>"
+            # additional_data = additional_data + f"<p>Dados da reserva: {reservation.reservationInfo}"
+            additional_data = additional_data + f"<p>Dados da reserva: Dia {reservation.reservationInfo[0]}, das {reservation.reservationInfo[1]}:00 às {reservation.reservationInfo[2]}:00</p>"
+            additional_data = additional_data + "</div>"
+    additional_data = additional_data + "</div>"
+    return render_template('user_profile.html', additional_data=additional_data, name=name, email=email, username=username, phoneNumber=phoneNumber, user_page=user_page)
+
 
 @app.route('/request_courts', methods=['GET'])
 def request_courts():

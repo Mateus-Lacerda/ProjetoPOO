@@ -1,14 +1,40 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(0, 103, 212);
+    background: linear-gradient(to right, #2c3e50 0%, #4a586e 100%); /* Gradiente de fundo */
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     justify-content: center;
     color: white;
+}
+
+h2.welcome-message {
+    color: #FFC107;
+    /* Cor de destaque */
+    font-size: 24px;
+    /* Tamanho maior para mais destaque */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra para dar profundidade */
+    margin-bottom: 30px;
+    /* Espaçamento maior para separar do restante do conteúdo */
+    animation: fadeIn 2s ease-in-out;
+    /* Animação suave de entrada */
+}
+
+/* Animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #courtContainer {
@@ -22,8 +48,9 @@ body {
 
 .court {
     width: 300px;
-    height: 350px;
-    background-color: #2ecc71;
+    height: auto;
+    background-color: #ffffff;
+    /* Dark gray background color */
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -32,6 +59,7 @@ body {
     align-items: center;
     text-align: center;
     color: #000000;
+    /* Light gray text color */
 }
 
 .court h1 {
@@ -41,7 +69,8 @@ body {
 
 .court p {
     font-size: 18px;
-    color: #000;
+    color: #000000;
+    /* Medium gray text color */
 }
 
 .page-top-buttons {
@@ -68,3 +97,16 @@ body {
     background-color: #cf8700;
 }
 
+/* This is a button that is used to rent a court */
+.locate {
+    background-color: #000000;
+    /* Dark gray button background color */
+    color: #eee;
+    /* Light gray button text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 5px;
+}
