@@ -16,6 +16,7 @@
             <form method="POST" action="/login">
                 <input type="text" id="username" name="username" placeholder="Nome de Usuário" required><br>
                 <input type="password" id="password" name="password" placeholder="Senha" required><br>
+                <button type="button" id="show-password">Mostrar senha</button>
 
                 <div class="radio-container">
                     <input type="radio" id="locator" name="userType" value="Locator" required>
@@ -36,6 +37,7 @@
         </div>
 
     </div>
+    <script src="{{ url_for('static',filename='script/script.js') }}"></script>
 
 </body>
 
