@@ -154,6 +154,7 @@ if (window.location.pathname === '/courts') {
             courtDiv.classList.add('court-div');
             courtDiv.setAttribute('data-locator', court.locatorID);
             courtDiv.setAttribute('data-court', court.courtID);
+            var renterID = document.cookie.split('=')[1];
 
             courtDiv.innerHTML = `
             <div class="court">

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Avaliações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/review_dashboard_styles.css')}}">
+</head>
+
+<body id="reviews-body">
+
+    <h1 id="reviews-heading" class="welcome-message">Painel de Avaliações</h1>
+
+    <table id="reviews-table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuário</th>
+                <th>Quadra</th>
+                <th>Dono</th>
+                <th>Avaliação</th>
+                <th>Comentário</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review_id, review_data in reviews.items() %}
+            <tr class="review-row">
+                <td class="review-id">{{ review_data.id }}</td>
+                <td class="review-username">{{ review_data.username }}</td>
+                <td class="review-courtID">{{ review_data.courtName }}</td>
+                <td class="review-courtID">{{ review_data.locatorname }}</td>
+                <td class="review-rating">{{ review_data.rating }}</td>
+                <td class="review-comment">{{ review_data.review }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

@@ -14,6 +14,7 @@ body {
 h1 {
     color: #eee;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 form {
@@ -39,10 +40,8 @@ label {
 select {
     width: 100%;
     display: block;
-    /* Added display block */
     padding: 10px;
     margin: 0 auto;
-    /* Center the textarea */
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #444;
@@ -52,9 +51,7 @@ select {
 textarea {
     width: 100%;
     display: block;
-    /* Added display block */
     padding: 10px;
-    /* Center the textarea */
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #444;
@@ -79,4 +76,16 @@ button {
 
 button:hover {
     background-color: #333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

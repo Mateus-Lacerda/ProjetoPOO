@@ -1,5 +1,5 @@
 courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
-0,<locator.Locator object at 0x00000157F398F1D0>,0,Basquete,lote 15,300,30,<agenda.Agenda object at 0x00000157F1E34590>
-1,<locator.Locator object at 0x00000157F398F1D0>,0,Golfe,aloc,200,10,<agenda.Agenda object at 0x00000157F3B33080>
-2,<locator.Locator object at 0x00000157F398F1D0>,0,Kart - TEMOS OS KARTS!,lote 14,300,12,<agenda.Agenda object at 0x00000157F3C445F0>
-3,<locator.Locator object at 0x00000157F398F1D0>,0,Tenis,Av. Palmeiras,250,5,<agenda.Agenda object at 0x00000157F375F230>
+0,<locator.Locator object at 0x00000176A4AE1BE0>,0,Basquete,lote 15,300,30,<agenda.Agenda object at 0x00000176A63C6660>
+1,<locator.Locator object at 0x00000176A4AE1BE0>,0,Golfe,aloc,200,10,<agenda.Agenda object at 0x00000176A454F320>
+2,<locator.Locator object at 0x00000176A4AE1BE0>,0,Kart - TEMOS OS KARTS!,lote 14,300,12,<agenda.Agenda object at 0x000001768B526D80>
+3,<locator.Locator object at 0x00000176A4AE1BE0>,0,Tenis,Av. Palmeiras,250,5,<agenda.Agenda object at 0x00000176A49FC290>
