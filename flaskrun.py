@@ -378,6 +378,4 @@ def user_created():
 
 if __name__ == '__main__':
     dataManagement()
-    # ngrok config add-authtoken 2bexp8CKTHCQSvJ9k4Kt4JLIhxC_5Q6svcyh2314ebCd6pjUt
-    # ngrok http http://localhost:5000
     app.run(debug=False, port=5000)
