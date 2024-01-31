@@ -1,6 +1,6 @@
-# Sports Facility Management System
+# Flask Application Template - Sports Facility Management
 
-A Flask web application for managing sports facilities. Users can log in, add courts, make reservations, and leave reviews.
+A template Flask web application showcasing the use of Flask, Pandas, and Object-Oriented Programming (OOP) for managing sports facilities. Users can log in, add courts, make reservations, and leave reviews.
 
 ## Contributors
 
@@ -21,14 +21,14 @@ A Flask web application for managing sports facilities. Users can log in, add co
 
 ## Overview
 
-The Sports Facility Management System is a web application developed with Flask. It allows users, both facility locators and renters, to manage courts, make reservations, and leave reviews for a better user experience.
+This project serves as a template for a Flask web application utilizing Flask, Pandas, and OOP principles for efficient sports facility management. It is designed to showcase the integration of these tools for building scalable and modular web applications.
 
 ## Getting Started
 
-To get the project up and running locally, follow these steps:
+To use this template and explore Flask, Pandas, and OOP programming, follow these steps:
 
 ```bash
-git clone https://github.com/your_username/sports-facility-management.git
-cd sports-facility-management
+git clone https://github.com/your_username/flask-pandas-oop-template.git
+cd flask-pandas-oop-template
 pip install -r requirements.txt
 python app.py
