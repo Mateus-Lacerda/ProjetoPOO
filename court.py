@@ -80,10 +80,6 @@ class Court:
         date = today
         startTime = self.hourToInt(startTime) - 1
         endTime = startTime + 1
-        print("______________________________________")
-        print(f"Booking court {self.courtID} for user {userID}")
-        print("______________________________________")
-        print(f"Reservation data: {date}, {startTime}, {endTime}")
         if self.checkAvailability(date, startTime, endTime) == True:
             thisreservation = reservation.Reservation(
                 self.courtID, userID, user.User.getUserName("Renter", userID), date, startTime, endTime)

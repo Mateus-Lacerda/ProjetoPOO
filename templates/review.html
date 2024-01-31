@@ -41,7 +41,7 @@
 </head>
 
 <body>
-    <h1>Página de Avaliação</h1>
+    <h1 class="welcome-message">Página de Avaliação</h1>
     <form method="POST">
         <input type="hidden" name="locatorID" value="{{ locatorID }}">
         <input type="hidden" name="courtID" value="{{ courtID }}">
@@ -62,17 +62,21 @@
         <label for="review">Comentário:</label>
         <textarea name="review" id="review" rows="4" cols="50" required></textarea>
         <br>
-        <button type="submit">Enviar Avaliação</button>
+        <button type="submit" onclick="changePage()">Enviar Avaliação</button>
         <br>
         {{ span | safe}}
     </form>
-
+    {{ script | safe}}
     <script>
         var labels = document.getElementsByTagName('label');
         for (var i = 0; i < labels.length; i++) {
             var span = labels[i].getElementsByTagName('span')[0];
             span.id = "starIcon";
             span.className = "fa fa-star";
+        }
+        function changePage() {
+            wait(5000)
+            window.location.href = '/courts?renterID={{ renterID }}';
         }
     </script>
 

@@ -1,0 +1,2 @@
+courtID,thisLocator,locatorID,courtType,location,pricePerHour,maxPlayers,agenda
+8,<locator.Locator object at 0x000001FD439AACC0>,5,Polo Aquático,Rua 3,700,10,<agenda.Agenda object at 0x000001FD41D47EC0>

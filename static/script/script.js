@@ -1,16 +1,3 @@
-const passwordInput = document.getElementById("password");
-const showPasswordButton = document.getElementById("show-password");
-
-showPasswordButton.addEventListener("click", () => {
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        showPasswordButton.textContent = "Ocultar senha";
-    } else {
-        passwordInput.type = "password";
-        showPasswordButton.textContent = "Mostrar senha";
-    }
-});
-
 // EXECUTA NA PÁGINA DE ADICIONAR QUADRAS
 if (window.location.pathname === '/add_courts') {
     const ownedCourtsNum = localStorage.getItem('ownedCourtsNum');
@@ -238,3 +225,18 @@ logOutButton.addEventListener('click', function (event) {
     var newURL = window.location.origin + '/logout';
     window.location.replace(newURL);
 });
+
+if (window.location.pathname === '/login' || window.location.pathname === '/add_user_renter' || window.location.pathname === '/add_user_locator') {
+    const passwordInput = document.getElementById("password");
+    const showPasswordButton = document.getElementById("show-password");
+
+    showPasswordButton.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.textContent = "Ocultar senha";
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.textContent = "Mostrar senha";
+        }
+    });
+}
